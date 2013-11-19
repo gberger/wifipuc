@@ -3,5 +3,5 @@ require 'open-uri'
 require 'json'
 
 get '/' do
-  JSON.parse(open("http://ip-api.com/json/#{@env['REMOTE_ADDR']}").read)["isp"]
+  JSON.parse(open("http://ip-api.com/json/#{request.ip}").read)["isp"]
 end
