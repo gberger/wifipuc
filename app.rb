@@ -1,11 +1,12 @@
 require 'sinatra'
 require 'open-uri'
 require 'json'
+require 'unicode'
 
 get '/' do
-  if JSON.parse(open("http://ip-api.com/json/#{request.ip}").read)["isp"] == 'Pontificia Universidade Catolica do Rio de Janeiro'
-    "Você está no Wi-Fi PUC."
-  else
-    "Você não está no Wi-Fi PUC."
-  end
+  @isWifiPUC = JSON.parse(open("http://ip-api.com/json/#{request.ip}").read)["isp"] == 'Pontificia Universidade Catolica do Rio de Janeiro'
+  @word = @isWifiPUC ? 'SIM' : 'NÃO'
+  @connector = @isWifiPUC ? '' : 'não '
+  @klass = @isWifiPUC ? 'sim' : 'nao'
+  erb :index
 end

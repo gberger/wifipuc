@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eu estou no Wi-Fi PUC?</title>
+
+  <style>
+    h1 {
+      text-align: center;
+      font-family: Ubuntu, Helvetica, Arial, sans-serif;
+    }
+
+    .sim {
+      color: #2980b9;
+    }
+
+    .nao {
+      color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <h1><span class="<%= @klass %>"><%= @word %></span>, você <%= @connector %>está no Wi-Fi PUC.</h1>
+</body>
+</html>
